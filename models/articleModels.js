@@ -1,5 +1,4 @@
 const db = require("../db/connection");
-const topics = require("../db/data/test-data/topics");
 
 const fetchArticleById = (article_id) => {
   return db
@@ -13,14 +12,12 @@ const fetchArticleById = (article_id) => {
       [article_id]
     )
     .then(({ rows }) => {
-      if (!rows[0]) {
-        // custom error
-        return Promise.reject({
-          status: 404,
-          msg: "Article id not found. Please check and try again :)",
-        });
-      }
-      return rows[0]; // ---- future berni this is the article object :)
+      return rows[0]
+        ? rows[0]
+        : Promise.reject({
+            status: 404,
+            msg: "Article id not found. Please check and try again :)",
+          });
     });
 };
 

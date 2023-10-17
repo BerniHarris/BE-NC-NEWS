@@ -25,7 +25,6 @@ describe("                      ------TOPIC TESTS------", () => {
         .then((res) => {
           expect(res.body.topics.length).toBe(3);
           res.body.topics.forEach((topic) => {
-            console.log(topic.description);
             expect(topic).toEqual(
               expect.objectContaining({
                 slug: expect.any(String),
@@ -486,7 +485,6 @@ describe("ENDPOINTS", () => {
         .get("/api")
         .expect(200)
         .then((res) => {
-          console.log(res.body);
           expect(res.body).toEqual(endpoints);
         });
     });
