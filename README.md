@@ -4,7 +4,7 @@
 
 Created as the back end project of my coding boot camp with Northcoders, this API has been built to then use with my front end block of the course. The final project will be a mini Reddit style news forum.
 
-It is a PSQL database which you can visit here: [https://nc-news-api-e6xe.onrender.com/api/](https://nc-news-api-e6xe.onrender.com/api/)
+It is a PSQL database which you can visit here: [https://berni-nc-news-api.onrender.com/api]([https://berni-nc-news-api.onrender.com/api)]
 
 ## Getting started
 
