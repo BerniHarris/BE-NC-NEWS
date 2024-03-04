@@ -9,7 +9,7 @@ const customError = (err, req, res, next) => {
   if (err.status && err.msg) {
     res.status(err.status).send({ message: err.msg });
   } else {
-    next(err); // don't forget this moves you down to next app block
+    next(err);
   }
 };
 

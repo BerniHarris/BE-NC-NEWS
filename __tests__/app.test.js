@@ -6,7 +6,6 @@ const testData = require("../db/data/test-data");
 const seed = require("../db/seeds/seed");
 const endpoints = require("../endpoints.json");
 
-// ---- connect and disconnect for each test ----
 beforeEach(() => {
   return seed(testData);
 });
@@ -15,8 +14,7 @@ afterAll(() => {
   return db.end();
 });
 
-// ------Topic Tests-------
-describe("                      ------TOPIC TESTS------", () => {
+describe("TOPIC TESTS", () => {
   describe("GET/api/topics", () => {
     test("status 200: returns an array of topic objects with a key of slug and description", () => {
       return request(app)
@@ -46,8 +44,7 @@ describe("                      ------TOPIC TESTS------", () => {
     });
   });
 });
-// ------Article Tests-------
-describe("                      -------ARTICLE TESTS-------", () => {
+describe("ARTICLE TESTS", () => {
   // ** install "npm install --save-dev jest-sorted" to be able to test sorts! not included in Jest automatically! **
 
   describe("GET/api/articles", () => {
@@ -450,15 +447,14 @@ describe("                      -------ARTICLE TESTS-------", () => {
   });
 });
 
-// ------User Tests-------
-describe("                      -------USER TESTS-------", () => {
+describe("USER TESTS", () => {
   describe("GET/api/users", () => {
     test("status: 200 - should return an array of users objects with a length of 4", () => {
       return request(app)
         .get("/api/users")
         .expect(200)
         .then((res) => {
-          expect(res.body.length).toEqual(4);
+          expect(res.body.users.length).toEqual(4);
         });
     });
     test("status: 200 - each user object should contain the property of username", () => {
@@ -466,7 +462,7 @@ describe("                      -------USER TESTS-------", () => {
         .get("/api/users/")
         .expect(200)
         .then((res) => {
-          res.body.forEach((user) => {
+          res.body.users.forEach((user) => {
             expect(user).toEqual(
               expect.objectContaining({
                 username: expect.any(String),
@@ -477,7 +473,6 @@ describe("                      -------USER TESTS-------", () => {
     });
   });
 });
-// ------Endpoint test-------
 describe("ENDPOINTS", () => {
   describe("/api", () => {
     test("status 200: returns JSON describing all available endpoints", () => {

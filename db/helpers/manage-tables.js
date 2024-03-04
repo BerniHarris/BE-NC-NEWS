@@ -43,10 +43,15 @@ const createTables = async () => {
 };
 
 const dropTables = async () => {
-  await db.query(`DROP TABLE IF EXISTS comments;`);
-  await db.query(`DROP TABLE IF EXISTS articles;`);
-  await db.query(`DROP TABLE IF EXISTS users;`);
-  await db.query(`DROP TABLE IF EXISTS topics;`);
+  try {
+    await db.query(`DROP TABLE IF EXISTS comments;`);
+    await db.query(`DROP TABLE IF EXISTS articles;`);
+    await db.query(`DROP TABLE IF EXISTS users;`);
+    await db.query(`DROP TABLE IF EXISTS topics;`);
+  } catch (error) {
+    console.error("Error dropping tables:", error);
+    throw error;
+  }
 };
 
 module.exports = { createTables, dropTables };

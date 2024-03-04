@@ -1,10 +1,8 @@
 const db = require("../db/connection");
-const topics = require("../db/data/test-data/topics");
 
-const fetchUserNames = () => {
-  return db.query("SELECT username FROM users;").then(({ rows }) => {
-    return rows;
-  });
+const fetchUserNames = async () => {
+  const { rows } = await db.query("SELECT username FROM users;");
+  return rows;
 };
 
 module.exports = {
