@@ -7,7 +7,7 @@
     "setup-dbs": "psql -f ./db/setup.sql",
     "seed": "node ./db/seeds/run-seed.js",
     "test": "jest",
-    "prepare": "husky install",
+    "prepare": "npm husky install",
     "seed:prod": "NODE_ENV=production DATABASE_URL=$DATABASE_URL npm run seed",
     "start": "node listen.js"
   },
@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/northcoders/be-nc-news#readme",
   "devDependencies": {
-    "husky": "^7.0.0",
+    "husky": "^7.0.4",
     "jest": "^27.5.1",
     "jest-extended": "^2.0.0",
     "jest-sorted": "^1.0.15",
